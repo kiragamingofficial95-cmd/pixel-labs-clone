@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Labs — Launch a page that converts</title>
+<meta content="Pixel Labs turns what you sell into a complete, high-converting landing page in an afternoon. Built for founders and small teams who need results now." name="description"/>
+<link href="https://media.base44.com/images/public/user_6aeec7d30d5fd15e5f9b5038/9930bf5f1_image.png" rel="icon" type="image/png"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        background: 'hsl(60 33% 99%)',
+        foreground: 'hsl(0 0% 4%)',
+        primary: 'hsl(18 100% 50%)',
+        muted: 'hsl(60 8% 96%)',
+        'muted-foreground': 'hsl(0 0% 38%)',
+        border: 'hsl(60 5% 89%)',
+      },
+      fontFamily: {
+        heading: ['Manrope','ui-sans-serif','system-ui','sans-serif'],
+        body: ['Inter','ui-sans-serif','system-ui','sans-serif'],
+        mono: ['"JetBrains Mono"','ui-monospace','monospace'],
+        unbounded: ['Unbounded','Manrope','ui-sans-serif','system-ui','sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<style>
+:root {
+  --background: 60 33% 99%;
+  --foreground: 0 0% 4%;
+  --primary: 18 100% 50%;
+  --muted: 60 8% 96%;
+  --muted-foreground: 0 0% 38%;
+  --border: 60 5% 89%;
+  --font-heading: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-unbounded: "Unbounded", "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--font-body); -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; line-height: 1.5; }
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: inherit; }
+a { color: inherit; text-decoration: inherit; }
+.shell { width: 100%; max-width: 1180px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+@media (min-width: 640px) { .shell { padding-left: 2rem; padding-right: 2rem; } }
+.grain { background-image: radial-gradient(hsl(var(--foreground) / .045) .5px, transparent .5px); background-size: 18px 18px; }
+.display { font-family: var(--font-heading); letter-spacing: -.04em; }
+@keyframes ping { 0% { transform: scale(1); opacity: 1; } 75%, 100% { transform: scale(2.2); opacity: 0; } }
+@keyframes enter { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(26px); }
+.reveal.in { animation: enter .75s cubic-bezier(.16,1,.3,1) both; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 20s linear infinite; }
+details summary::-webkit-details-marker { display: none; }
+details summary { list-style: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+// Full page content
+const root = document.getElementById('root');
+root.innerHTML = `
+<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b border-transparent bg-transparent" id="header">
+  <nav class="shell flex h-[72px] items-center justify-between">
+    <a href="#top" aria-label="Pixel Labs home">
+      <span class="inline-flex items-center">
+        <span class="flex h-10 items-center overflow-hidden rounded-[10px] px-2 bg-[#0A0A0A]">
+          <img src="https://media.base44.com/images/public/user_6aeec7d30d5fd15e5f9b5038/9930bf5f1_image.png" alt="Pixel Labs" class="h-6 w-auto"/>
+        </span>
+      </span>
+    </a>
+    <div class="hidden items-center gap-8 lg:flex">
+      <a href="#features" class="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]">Features</a>
+      <a href="#how-it-works" class="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]">How It Works</a>
+      <a href="#reviews" class="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]">Reviews</a>
+      <a href="#faq" class="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]">FAQ</a>
+      <a href="#contact" class="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]">Contact</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="#contact" class="hidden rounded-full bg-[hsl(18_100%_50%)] px-6 py-2.5 text-[14px] font-semibold text-white shadow-[0_12px_28px_-14px_hsl(18_100%_50%/0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[hsl(18_100%_46%)] sm:inline-flex">Book Call</a>
+      <button type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" class="flex h-10 w-10 items-center justify-center rounded-full border border-[hsl(0_0%_4%/0.14)] text-foreground transition hover:bg-white lg:hidden">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="hidden overflow-hidden border-t border-[hsl(60_5%_89%)] bg-[hsl(60_33%_99%)] lg:hidden">
+    <div class="shell flex flex-col py-4">
+      <a href="#features" class="border-b border-[hsl(60_5%_92%)] py-3.5 font-mono text-[12px] uppercase tracking-[0.16em] text-foreground/75">Features</a>
+      <a href="#how-it-works" class="border-b border-[hsl(60_5%_92%)] py-3.5 font-mono text-[12px] uppercase tracking-[0.16em] text-foreground/75">How It Works</a>
+      <a href="#reviews" class="border-b border-[hsl(60_5%_92%)] py-3.5 font-mono text-[12px] uppercase tracking-[0.16em] text-foreground/75">Reviews</a>
+      <a href="#faq" class="border-b border-[hsl(60_5%_92%)] py-3.5 font-mono text-[12px] uppercase tracking-[0.16em] text-foreground/75">FAQ</a>
+      <a href="#contact" class="border-b border-[hsl(60_5%_92%)] py-3.5 font-mono text-[12px] uppercase tracking-[0.16em] text-foreground/75">Contact</a>
+      <a href="#contact" class="mt-4 rounded-full bg-[hsl(18_100%_50%)] py-3 text-center text-[14px] font-semibold text-white">Book Call</a>
+    </div>
+  </div>
+</header>
+
+<div id="progressBar" class="fixed left-0 top-0 z-[60] h-[2px] w-full origin-left bg-[hsl(18_100%_50%)]" style="transform: scaleX(0)"></div>
+
+<main>
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-40">
+  <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] bg-[radial-gradient(55%_55%_at_50%_0%,hsl(18_100%_50%/0.10),transparent_72%)]"></div>
+  <div class="pointer-events-none absolute inset-0 -z-10 grain opacity-70"></div>
+  <div class="shell">
+    <div class="mx-auto max-w-3xl">
+      <div class="reveal inline-flex items-center gap-2.5 rounded-full border border-[hsl(0_0%_4%/0.12)] bg-white/70 px-3.5 py-1.5">
+        <span class="relative flex h-1.5 w-1.5">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(18_100%_50%)] opacity-70"></span>
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(18_100%_50%)]"></span>
+        </span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/70">For founders who ship</span>
+      </div>
+      <div class="reveal mt-7" style="animation-delay:.08s">
+        <h1 class="display text-[2.6rem] font-bold leading-[1.02] sm:text-[3.6rem] lg:text-[4rem]">
+          Launch a page that converts.
+          <span class="mt-1 block text-[hsl(18_100%_50%)]">Without the six-week agency wait.</span>
+        </h1>
+      </div>
+      <div class="reveal mt-6 max-w-[34rem] text-[17px] leading-[1.65] text-muted-foreground" style="animation-delay:.16s">
+        Pixel Labs turns what you sell into a complete, high-converting landing page in an afternoon. Built for founders and small teams who need results now — not a design retainer.
+      </div>
+      <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row sm:items-center" style="animation-delay:.24s">
+        <a href="#contact" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(18_100%_50%)] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_36px_36px_-14px_hsl(18_100%_50%/0.65)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[hsl(18_100%_46%)]">
+          Get a quote
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" class="transition-transform duration-300 group-hover:translate-x-0.5"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-[15px] font-semibold transition-all duration-300 border-[hsl(0_0%_4%/0.16)] text-foreground hover:bg-white hover:shadow-[0_8px_24px_-16px_rgba(10,10,10,0.5)]">
+          <span class="flex h-5 w-5 items-center justify-center rounded-full bg-foreground text-[8px] text-white">▶</span>
+          See the walkthrough
+        </a>
+      </div>
+      <div class="reveal mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground" style="animation-delay:.3s">
+        <span class="flex items-center gap-1.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="hsl(18 100% 50%)" stroke="hsl(18 100% 50%)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Fixed quote
+        </span>
+        <span class="h-1 w-1 rounded-full bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span>Live in one afternoon</span>
+        <span class="h-1 w-1 rounded-full bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span>You own everything</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="scroll-mt-24 border-y border-[hsl(60_5%_89%)] bg-white/60 py-16 sm:py-20">
+  <div class="shell">
+    <p class="text-center font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground reveal">Trusted by teams shipping at</p>
+    <div class="mt-8 grid grid-cols-2 items-center gap-x-6 gap-y-5 sm:grid-cols-3 lg:grid-cols-6 reveal" style="animation-delay:.08s">
+      ${['Northwind','Vertex','Halcyon','Lattice','Orbital','Kestrel'].map(n=>`<span class="text-center font-heading text-[15px] font-semibold uppercase tracking-[0.16em] text-foreground/35 transition-colors duration-300 hover:text-foreground/60">${n}</span>`).join('')}
+    </div>
+    <div class="mt-14 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 scrollbar-none md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0">
+      <figure class="flex h-full flex-col justify-between rounded-3xl border border-[hsl(60_5%_89%)] bg-[hsl(60_33%_99%)] p-7 reveal w-[86vw] shrink-0 snap-center md:w-auto" style="animation-delay:.1s">
+        <div>
+          <div class="flex gap-0.5">${[0,1,2,3,4].map(()=>`<svg width="13" height="13" viewBox="0 0 24 24" fill="hsl(18 100% 50%)" stroke="hsl(18 100% 50%)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join('')}</div>
+          <blockquote class="mt-4 text-[16px] leading-[1.65] text-foreground/85">“We replaced a $14,000 agency quote with a page that went live in four hours. It converted 3.8% in the first week — more than the site it replaced did in a year.”</blockquote>
+        </div>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <img src="https://media.base44.com/images/public/6aeeca9e83bf1b73fa1f8859/6d7a04ea5_generated_35c6040b.png" alt="Mara Ellison" class="h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[hsl(60_5%_89%)]"/>
+          <div>
+            <p class="text-[14px] font-semibold text-foreground">Mara Ellison</p>
+            <p class="text-[12px] text-muted-foreground">Founder, Northwind Supply</p>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="flex h-full flex-col justify-between rounded-3xl border border-[hsl(60_5%_89%)] bg-[hsl(60_33%_99%)] p-7 reveal w-[86vw] shrink-0 snap-center md:w-auto" style="animation-delay:.18s">
+        <div>
+          <div class="flex gap-0.5">${[0,1,2,3,4].map(()=>`<svg width="13" height="13" viewBox="0 0 24 24" fill="hsl(18 100% 50%)" stroke="hsl(18 100% 50%)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join('')}</div>
+          <blockquote class="mt-4 text-[16px] leading-[1.65] text-foreground/85">“I have launched six products on Pixel Labs. The structure does the selling before I even open my mouth on a call.”</blockquote>
+        </div>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <img src="https://media.base44.com/images/public/6aeeca9e83bf1b73fa1f8859/81a0c4ecc_generated_07fbcd09.png" alt="Devin Okafor" class="h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[hsl(60_5%_89%)]"/>
+          <div>
+            <p class="text-[14px] font-semibold text-foreground">Devin Okafor</p>
+            <p class="text-[12px] text-muted-foreground">Head of Growth, Vertex Labs</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="mt-12 grid grid-cols-3 divide-x divide-[hsl(60_5%_89%)] rounded-2xl border border-[hsl(60_5%_89%)] bg-[hsl(60_33%_99%)] py-5 reveal" style="animation-delay:.14s">
+      <div class="px-3 text-center"><p class="display text-xl font-bold sm:text-2xl">12,400+</p><p class="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">pages published</p></div>
+      <div class="px-3 text-center"><p class="display text-xl font-bold sm:text-2xl">3.4%</p><p class="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">avg. lift in conversion</p></div>
+      <div class="px-3 text-center"><p class="display text-xl font-bold sm:text-2xl">4.9/5</p><p class="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">average customer rating</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="scroll-mt-24 py-24 sm:py-28">
+  <div class="shell">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">[03]</span>
+        <span class="h-px w-6 bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Problem / Solution</span>
+      </div>
+      <h2 class="display mt-6 text-[2.1rem] font-bold leading-[1.05] sm:text-[2.9rem]">There's a better way.</h2>
+      <p class="mt-5 text-[17px] leading-relaxed text-muted-foreground">Most landing pages fail for the same three reasons. Pixel Labs removes all of them before you write a single word.</p>
+    </div>
+  </div>
+  <div class="shell mt-14">
+    <div class="flex gap-5 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory">
+      <div class="w-[84vw] shrink-0 sm:w-[64vw] lg:w-[56vw] snap-center">
+        <div class="h-full rounded-3xl border border-[hsl(60_5%_89%)] bg-[hsl(60_8%_95%)] p-8 sm:p-10">
+          <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">The old way</span>
+          <h3 class="display mt-4 text-2xl font-bold text-foreground/80">Slow, expensive, fragile</h3>
+          <ul class="mt-8 space-y-4">
+            ${['Six weeks of agency back-and-forth before a single click','A five-figure invoice just to see the first draft','A beautiful page nobody on your team can edit','Copy written by committee, converting by accident'].map(t=>`<li class="flex gap-3 text-[15px] leading-relaxed text-muted-foreground"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(0 0% 55%)" stroke-width="2" class="mt-1 shrink-0"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>${t}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+      <div class="w-[84vw] shrink-0 sm:w-[64vw] lg:w-[56vw] snap-center">
+        <div class="relative h-full overflow-hidden rounded-3xl border border-[hsl(18_100%_50%/0.25)] bg-white p-8 shadow-[0_40px_80px_-50px_hsl(18_100%_50%/0.55)] sm:p-10">
+          <div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,hsl(18_100%_50%/0.18),transparent_70%)]"></div>
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-[hsl(18_100%_50%)]">The Pixel Labs way</span>
+            <span class="rounded-full bg-[hsl(18_100%_50%)] px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white">Recommended</span>
+          </div>
+          <h3 class="display mt-4 text-2xl font-bold text-foreground">Fast, fixed-price, yours</h3>
+          <ul class="mt-8 space-y-4">
+            ${['A complete, on-brand page in one afternoon','A predictable monthly price you can cancel anytime','Every word, color, and image editable by you','Structure built to convert from the very first scroll'].map(t=>`<li class="flex gap-3 text-[15px] leading-relaxed text-foreground/85"><span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[hsl(18_100%_50%/0.12)]"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="hsl(18 100% 50%)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>${t}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="border-y border-[hsl(60_5%_89%)] bg-[hsl(60_20%_97%)] py-24 sm:py-28">
+  <div class="shell">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">[04]</span>
+        <span class="h-px w-6 bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Benefits</span>
+      </div>
+      <h2 class="display mt-6 text-[2.1rem] font-bold leading-[1.05] sm:text-[2.9rem]">Why you'll love Pixel Labs.</h2>
+      <p class="mt-5 text-[17px] leading-relaxed text-muted-foreground">Not a list of features. Six reasons your next page ships faster and performs better than the last one.</p>
+    </div>
+  </div>
+  <div class="shell mt-14">
+    <div class="mx-auto max-w-4xl pb-6 space-y-4">
+      ${[
+        {icon:'⚡',title:'Ship in hours, not weeks',body:'Launch a complete, responsive site the same day you start. No briefs, no queues, no waiting on someone else.'},
+        {icon:'📈',title:'Built to convert by default',body:'Every section follows a proven direct-response order, so visitors get the value fast and act on it.'},
+        {icon:'✨',title:'Looks engineered, not templated',body:'Premium type, spacing, and motion are baked in. Your page reads like a studio built it.'},
+        {icon:'⚡',title:'Fast where it actually counts',body:'Sub-second loads and clean performance scores on mobile, where most of your visitors arrive.'},
+        {icon:'🧱',title:'Edit anything, break nothing',body:'Swap copy, colors, and imagery in seconds. The layout holds together no matter what you change.'},
+        {icon:'🎯',title:'One page, the whole job',body:'Positioning, proof, pricing, and objections answered in a single scroll. No extra tools required.'},
+      ].map((b,i)=>`<div class="sticky pb-4" style="top:${84+i*14}px;z-index:${i+1}">
+        <div class="relative overflow-hidden rounded-3xl border border-[hsl(60_5%_88%)] bg-white p-7 shadow-[0_36px_70px_-46px_rgba(10,10,10,0.45)] sm:p-10">
+          <span aria-hidden="true" class="pointer-events-none absolute -right-2 -top-6 font-heading text-[92px] font-extrabold leading-none tracking-[-0.06em] text-[hsl(0_0%_4%/0.05)] sm:text-[110px]">${String(i+1).padStart(2,'0')}</span>
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[hsl(18_100%_50%/0.10)] text-[hsl(18_100%_50%)] text-lg">${b.icon}</span>
+          <h3 class="display relative mt-5 text-[21px] font-bold sm:text-[26px]">${b.title}</h3>
+          <p class="relative mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">${b.body}</p>
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>
+  <div class="shell">
+    <div class="mt-12 flex justify-center">
+      <a href="#contact" class="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]">
+        Get a quote for your page
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform duration-300 group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="scroll-mt-24 py-24 sm:py-28">
+  <div class="shell">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="flex items-center gap-3 justify-center">
+        <span class="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">[05]</span>
+        <span class="h-px w-6 bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">How it works</span>
+      </div>
+      <h2 class="display mt-6 text-[2.1rem] font-bold leading-[1.05] sm:text-[2.9rem]">Three steps. One afternoon.</h2>
+      <p class="mt-5 text-[17px] leading-relaxed text-muted-foreground">No onboarding calls, no implementation project. You describe, we assemble, you publish.</p>
+    </div>
+  </div>
+  <div class="shell mt-14">
+    <div class="flex gap-5 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory">
+      ${[
+        {n:'01',title:'Describe what you sell',body:'Answer five short questions about your product, your buyer, and the outcome you deliver.'},
+        {n:'02',title:'Get your page in minutes',body:'Pixel Labs assembles a complete landing page — copy, layout, imagery, and pricing included.'},
+        {n:'03',title:'Publish and start converting',body:'Connect your domain, hit publish, and start collecting real enquiries the same week.'},
+      ].map((s,i)=>`<div class="w-[82vw] shrink-0 sm:w-[54vw] lg:w-[42vw] snap-center">
+        <div class="relative h-full overflow-hidden rounded-3xl border border-[hsl(60_5%_89%)] bg-white p-8 pt-14 shadow-[0_30px_60px_-46px_rgba(10,10,10,0.45)] will-change-transform">
+          <span aria-hidden="true" class="pointer-events-none absolute -right-2 top-0 font-heading text-[86px] font-extrabold leading-none tracking-[-0.06em] text-[hsl(0_0%_4%/0.055)]">${s.n}</span>
+          <span class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(18_100%_50%/0.10)] text-[hsl(18_100%_50%)]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/></svg>
+          </span>
+          <h3 class="display relative mt-6 text-xl font-bold">${s.title}</h3>
+          <p class="relative mt-2.5 text-[14.5px] leading-relaxed text-muted-foreground">${s.body}</p>
+          <div class="mt-7 h-[2px] w-full overflow-hidden rounded-full bg-[hsl(60_5%_92%)]">
+            <div class="h-full w-full origin-left bg-[hsl(18_100%_50%)]" style="transform: scaleX(1)"></div>
+          </div>
+        </div>
+      </div>`).join('')}
+      <div class="hidden w-[30vw] shrink-0 items-center lg:flex">
+        <p class="font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-muted-foreground">Average time from first login to a live page: 47 minutes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="scroll-mt-24 bg-[#0A0A0A] py-24 text-white sm:py-32">
+  <div class="shell">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[11px] tracking-[0.18em] text-white/40">[06]</span>
+        <span class="h-px w-6 bg-white/25"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-white/60">See it in motion</span>
+      </div>
+      <h2 class="display mt-6 text-[2.1rem] font-bold leading-[1.05] text-white sm:text-[2.9rem]">
+        Two minutes to see the whole thing.
+        <span class="font-unbounded text-[0.82em] font-semibold tracking-[-0.02em]">the whole thing.</span>
+      </h2>
+      <p class="mt-5 text-[17px] leading-relaxed text-white/60">A short walkthrough of turning one paragraph about your business into a page that is ready to sell.</p>
+    </div>
+    <div class="mt-14 grid items-center gap-10 lg:grid-cols-[1.45fr_1fr]">
+      <div class="relative hidden overflow-hidden rounded-[26px] border border-white/10 lg:block">
+        <div class="relative aspect-video overflow-hidden">
+          <img src="https://media.base44.com/images/public/6aeeca9e83bf1b73fa1f8859/759dca654_generated_9f772258.png" alt="Abstract 3D composition representing clarity from chaos" class="absolute inset-0 h-full w-full object-cover"/>
+          <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,0.15),rgba(10,10,10,0.7))]"></div>
+          <div aria-hidden="true" class="absolute inset-0 flex items-center justify-center">
+            <span class="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-md">
+              <span class="ml-0.5 text-[13px] text-white">▶</span>
+            </span>
+          </div>
+          <div class="absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
+            <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">02:14 · product walkthrough</span>
+            <span class="rounded-full border border-white/20 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/60">Demo placeholder</span>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-7">
+        ${[
+          {title:'What it does',body:'Turns a plain description of your offer into a finished, conversion-ordered page you can publish immediately.'},
+          {title:'Who it helps',body:'Founders, marketers, consultants, and small teams who need a page that sells without hiring anyone.'},
+          {title:'Why it is different',body:'You are not dragging boxes around. You are adopting a structure that has already been tested on thousands of pages.'},
+        ].map((u,i)=>`<div class="flex gap-4 reveal" style="animation-delay:${.08+i*.07}s">
+          <span class="font-mono text-[10px] tracking-[0.16em] text-[hsl(18_100%_50%)]">0${i+1}</span>
+          <div>
+            <h3 class="display text-[16px] font-bold text-white">${u.title}</h3>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-white/55">${u.body}</p>
+          </div>
+        </div>`).join('')}
+        <div class="reveal" style="animation-delay:.3s">
+          <a href="#contact" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(18_100%_50%)] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_36px_36px_-14px_hsl(18_100%_50%/0.65)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[hsl(18_100%_46%)]">
+            Get a quote
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" class="transition-transform duration-300 group-hover:translate-x-0.5"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="overflow-hidden border-y border-white/10 bg-[#0A0A0A] py-5">
+  <div class="flex w-max items-center whitespace-nowrap will-change-transform marquee-track">
+    ${Array.from({length:4}).flatMap(()=>['Launch fast','Convert harder','Pixel Labs']).map((t,i)=>`<span class="flex items-center"><span class="display px-6 text-[6.5vw] font-extrabold uppercase leading-none tracking-[-0.04em] lg:text-[4.4vw] ${i%3===1?'text-[hsl(18_100%_50%)]':'text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.22)]'}">${t}</span><span class="text-[#FF4D00]">✳</span></span>`).join('')}
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq" class="scroll-mt-24 border-y border-[hsl(60_5%_89%)] bg-[hsl(60_20%_97%)] py-24 sm:py-32">
+  <div class="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">[08]</span>
+        <span class="h-px w-6 bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">FAQ</span>
+      </div>
+      <h2 class="display mt-6 text-[2.1rem] font-bold leading-[1.05] sm:text-[2.9rem]">Questions, answered.</h2>
+      <p class="mt-5 text-[17px] leading-relaxed text-muted-foreground">The five things people ask before they start. If yours is missing, email us and a human will reply.</p>
+    </div>
+    <div class="w-full">
+      ${[
+        {q:'Is this right for me?',a:'If you need a landing page that sells a product, service, or offer — and you want it live this week — yes. It is built for founders, marketers, and small teams, not for large engineering departments.'},
+        {q:'How long does it take to launch?',a:'Most people publish the same day. Setup takes about ten minutes; the rest is simply deciding what to say.'},
+        {q:'Do I need design or coding experience?',a:'No. You choose a direction, answer a few questions, and edit plain text. Nothing to install, nothing to break.'},
+        {q:'What if it does not work?',a:'Run it for 14 days. If your page does not outperform what you had before, we will rebuild it with you or refund the month.'},
+        {q:'Can I cancel anytime?',a:'Yes. Monthly plans cancel from your dashboard in two clicks. No calls, no retention scripts.'},
+        {q:'Can I use my own domain and brand?',a:'Yes. Bring your domain, logo, and colors. Everything you build and publish is yours to keep.'},
+      ].map((f,i)=>`<details class="border-b border-[hsl(60_5%_89%)] px-1 last:border-b-0">
+        <summary class="group py-5 text-left text-[16px] font-semibold text-foreground hover:no-underline cursor-pointer flex items-center justify-between gap-4">
+          ${f.q}
+          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[hsl(0_0%_4%/0.12)] bg-white text-foreground transition-transform duration-300 group-open:rotate-45 group-open:border-[hsl(18_100%_50%)] group-open:text-[hsl(18_100%_50%)]">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="pb-5 pr-10 text-[14.5px] leading-relaxed text-muted-foreground">${f.a}</div>
+      </details>`).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- BOOK CTA -->
+<section id="book" class="scroll-mt-24 bg-[hsl(18_100%_50%)] py-24 sm:py-28">
+  <div class="shell">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-[#0A0A0A]/60">[10] // Ready when you are</p>
+      <h2 class="display mt-6 text-[2.3rem] font-bold leading-[1.02] text-[#0A0A0A] sm:text-[3.4rem]">Ready to launch a page that actually sells?</h2>
+      <p class="mx-auto mt-6 max-w-xl text-[16.5px] leading-relaxed text-[#0A0A0A]/70">You could spend another month waiting on a design team. Or you could have a live page by tonight. Tell us what you sell and we will quote it today.</p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="#contact" class="group inline-flex items-center justify-center gap-2 rounded-full bg-[#0A0A0A] px-8 py-4 text-[15px] font-semibold text-white shadow-[0_24px_50px_-24px_rgba(10,10,10,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1c1c1c]">
+          Book a Call
+          <span class="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+        </a>
+        <a href="mailto:hello@pixellabs.studio?subject=Quote%20request%20for%20my%20landing%20page" class="inline-flex items-center justify-center rounded-full border border-[#0A0A0A]/25 px-8 py-4 text-[15px] font-semibold text-[#0A0A0A] transition-colors duration-300 hover:bg-[#0A0A0A]/8">Email us</a>
+      </div>
+      <p class="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-[#0A0A0A]/50">Fixed quote · No card required</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="scroll-mt-24 border-t border-[hsl(60_5%_89%)] bg-[hsl(60_20%_97%)] py-24 sm:py-28">
+  <div class="shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[11px] tracking-[0.18em] text-muted-foreground">[09]</span>
+        <span class="h-px w-6 bg-[hsl(0_0%_4%/0.2)]"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Book a call</span>
+      </div>
+      <h2 class="display mt-6 text-[2.1rem] font-bold leading-[1.05] sm:text-[2.9rem]">Let's talk about your page.</h2>
+      <p class="mt-5 max-w-md text-[16.5px] leading-relaxed text-muted-foreground">Tell us what you sell. You'll get a fixed quote and a launch date within one working day — no discovery calls required.</p>
+      <div class="mt-9 space-y-4">
+        <a href="mailto:hello@pixellabs.studio" class="flex items-center gap-3 text-[15px] text-foreground/80 transition-colors hover:text-[hsl(18_100%_50%)]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(18 100% 50%)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+          hello@pixellabs.studio
+        </a>
+        <p class="flex items-center gap-3 text-[15px] text-foreground/80">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(18 100% 50%)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Replies within one working day
+        </p>
+      </div>
+      <div class="mt-9 rounded-2xl border border-[hsl(60_5%_89%)] bg-white/70 p-5">
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">What happens next</p>
+        <ol class="mt-4 space-y-3 text-[14px] leading-relaxed text-foreground/75">
+          <li class="flex gap-3"><span class="font-mono text-[10px] text-[hsl(18_100%_50%)]">01</span> We read what you sell and reply with a fixed price.</li>
+          <li class="flex gap-3"><span class="font-mono text-[10px] text-[hsl(18_100%_50%)]">02</span> You approve, we build the page that afternoon.</li>
+          <li class="flex gap-3"><span class="font-mono text-[10px] text-[hsl(18_100%_50%)]">03</span> You review, we publish on your domain.</li>
+        </ol>
+      </div>
+    </div>
+    <div>
+      <div class="rounded-3xl border border-[hsl(60_5%_89%)] bg-white p-6 shadow-[0_40px_80px_-56px_rgba(10,10,10,0.45)] sm:p-8">
+        <form class="space-y-5" onsubmit="event.preventDefault(); this.querySelector('.success').classList.remove('hidden'); this.querySelector('.form-fields').classList.add('hidden');">
+          <div class="form-fields space-y-5">
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label>
+                <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Your name</span>
+                <input type="text" required placeholder="Alex Rivera" class="mt-2 w-full rounded-xl border border-[hsl(60_5%_87%)] bg-[hsl(60_33%_99%)] px-4 py-3 text-[15px] text-foreground outline-none transition focus:border-[hsl(18_100%_50%)] focus:ring-2 focus:ring-[hsl(18_100%_50%/0.15)]"/>
+              </label>
+              <label>
+                <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Email</span>
+                <input type="email" required placeholder="alex@company.com" class="mt-2 w-full rounded-xl border border-[hsl(60_5%_87%)] bg-[hsl(60_33%_99%)] px-4 py-3 text-[15px] text-foreground outline-none transition focus:border-[hsl(18_100%_50%)] focus:ring-2 focus:ring-[hsl(18_100%_50%/0.15)]"/>
+              </label>
+              <label class="sm:col-span-2">
+                <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Company</span>
+                <input type="text" placeholder="Company or brand" class="mt-2 w-full rounded-xl border border-[hsl(60_5%_87%)] bg-[hsl(60_33%_99%)] px-4 py-3 text-[15px] text-foreground outline-none transition focus:border-[hsl(18_100%_50%)] focus:ring-2 focus:ring-[hsl(18_100%_50%/0.15)]"/>
+              </label>
+            </div>
+            <label class="block">
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">What are you selling?</span>
+              <input type="text" placeholder="A course, a SaaS tool, a service…" class="mt-2 w-full rounded-xl border border-[hsl(60_5%_87%)] bg-[hsl(60_33%_99%)] px-4 py-3 text-[15px] text-foreground outline-none transition focus:border-[hsl(18_100%_50%)] focus:ring-2 focus:ring-[hsl(18_100%_50%/0.15)]"/>
+            </label>
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Budget for this page</span>
+              <div class="mt-2 flex flex-wrap gap-2">
+                ${['Under $1k','$1k – $3k','$3k – $7k','$7k+'].map((b,i)=>`<button type="button" class="rounded-full border px-4 py-2 text-[13px] transition ${i===1?'border-[hsl(18_100%_50%)] bg-[hsl(18_100%_50%)] text-white':'border-[hsl(60_5%_87%)] text-foreground/70 hover:border-[hsl(0_0%_4%/0.25)]'}">${b}</button>`).join('')}
+              </div>
+            </div>
+            <label class="block">
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Anything else?</span>
+              <textarea rows="3" placeholder="Deadline, links, anything that helps." class="mt-2 w-full resize-none rounded-xl border border-[hsl(60_5%_87%)] bg-[hsl(60_33%_99%)] px-4 py-3 text-[15px] text-foreground outline-none transition focus:border-[hsl(18_100%_50%)] focus:ring-2 focus:ring-[hsl(18_100%_50%/0.15)]"></textarea>
+            </label>
+            <button type="submit" class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[hsl(18_100%_50%)] px-6 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[hsl(18_100%_46%)]">
+              Get my quote
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" class="transition-transform duration-300 group-hover:translate-x-1"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">No spam · No card required</p>
+          </div>
+          <div class="success hidden flex min-h-[420px] flex-col items-center justify-center text-center">
+            <span class="flex h-14 w-14 items-center justify-center rounded-full bg-[hsl(18_100%_50%/0.12)] text-[hsl(18_100%_50%)]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <h3 class="display mt-6 text-2xl font-bold">Request received.</h3>
+            <p class="mt-3 max-w-xs text-[14.5px] leading-relaxed text-muted-foreground">Thanks — we'll come back to you with a fixed quote within one working day.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#0A0A0A] text-white py-16">
+  <div class="shell">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <span class="inline-flex items-center">
+          <span class="flex h-10 items-center overflow-hidden rounded-[10px] px-2 bg-white/[0.06] ring-1 ring-white/10">
+            <img src="https://media.base44.com/images/public/user_6aeec7d30d5fd15e5f9b5038/9930bf5f1_image.png" alt="Pixel Labs" class="h-6 w-auto"/>
+          </span>
+        </span>
+        <p class="mt-4 text-[14px] text-white/60 max-w-xs">A complete, high-converting landing page in an afternoon. No agency timeline, no design retainer.</p>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">Product</h4>
+        <ul class="space-y-2">
+          <li><a href="#features" class="text-[14px] text-white/65 transition-colors hover:text-white">Features</a></li>
+          <li><a href="#how-it-works" class="text-[14px] text-white/65 transition-colors hover:text-white">How It Works</a></li>
+          <li><a href="#reviews" class="text-[14px] text-white/65 transition-colors hover:text-white">Reviews</a></li>
+          <li><a href="#faq" class="text-[14px] text-white/65 transition-colors hover:text-white">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">Company</h4>
+        <ul class="space-y-2">
+          <li><a href="#contact" class="text-[14px] text-white/65 transition-colors hover:text-white">Contact</a></li>
+          <li><a href="mailto:hello@pixellabs.studio?subject=Careers%20at%20Pixel%20Labs" class="text-[14px] text-white/65 transition-colors hover:text-white">Careers</a></li>
+          <li><a href="mailto:hello@pixellabs.studio?subject=Press%20kit%20request" class="text-[14px] text-white/65 transition-colors hover:text-white">Press kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">Legal</h4>
+        <ul class="space-y-2">
+          <li><a href="/privacy" class="text-[14px] text-white/65 transition-colors hover:text-white">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-[14px] text-white/65 transition-colors hover:text-white">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-16 flex flex-col items-start justify-between gap-5 border-t border-white/10 pt-7 sm:flex-row sm:items-center">
+      <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-white/35">© 2026 Pixel Labs. All rights reserved.</p>
+      <div class="flex items-center gap-5">
+        <a href="https://x.com" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-[hsl(18_100%_50%)]">X</a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-[hsl(18_100%_50%)]">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-[hsl(18_100%_50%)]">Instagram</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-[hsl(18_100%_50%)]">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '-70px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 12) {
+    header.classList.remove('border-transparent','bg-transparent');
+    header.classList.add('border-b','border-[hsl(60_5%_89%)]','bg-[hsl(60_33%_99%/0.82)]','shadow-[0_8px_30px_-24px_rgba(10,10,10,0.5)]','backdrop-blur-xl');
+  } else {
+    header.classList.add('border-transparent','bg-transparent');
+    header.classList.remove('border-b','border-[hsl(60_5%_89%)]','bg-[hsl(60_33%_99%/0.82)]','shadow-[0_8px_30px_-24px_rgba(10,10,10,0.5)]','backdrop-blur-xl');
+  }
+});
+
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('hidden') === false;
+  menuBtn.setAttribute('aria-expanded', open);
+});
+
+// Progress bar
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.transform = 'scaleX(' + (window.scrollY / h) + ')';
+});
+</script>
+</body>
+</html>`;
+
+// Remove test.txt
+// (done separately)
