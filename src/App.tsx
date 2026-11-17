@@ -21,9 +21,9 @@ const ScrollHandler: React.FC = () => {
   return null;
 };
 
-export const App: React.FC = () => {
+export const AppRoutes: React.FC = () => {
   return (
-    <BrowserRouter>
+    <>
       <ScrollHandler />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -31,6 +31,14 @@ export const App: React.FC = () => {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+    </>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   );
 };
