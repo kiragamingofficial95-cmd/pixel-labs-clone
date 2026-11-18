@@ -5,7 +5,7 @@ import { Reveal } from '../components/Reveal';
 import { SectionHeader } from '../components/SectionHeader';
 import { CASE_STUDY, CONTACT_EMAIL, type ServicePageContent } from '../data/content';
 
-const ServiceHeader: React.FC = () => (
+export const ServiceHeader: React.FC = () => (
   <header className="fixed inset-x-0 top-0 z-50 border-b border-[hsl(60_5%_89%)] bg-[hsl(60_33%_99%/0.85)] backdrop-blur-xl">
     <div className="shell flex h-[72px] items-center justify-between">
       <Link to="/" aria-label="Pixel Labs home">
@@ -29,7 +29,7 @@ const ServiceHeader: React.FC = () => (
   </header>
 );
 
-const ServiceCTA: React.FC<{ title: string; body: string }> = ({ title, body }) => (
+export const ServiceCTA: React.FC<{ title: string; body: string }> = ({ title, body }) => (
   <section className="bg-[hsl(18_100%_50%)] py-24 sm:py-28">
     <div className="shell">
       <Reveal className="mx-auto max-w-3xl text-center">
@@ -168,24 +168,30 @@ export const ServicePage: React.FC<{ content: ServicePageContent }> = ({ content
 
         <ServiceCTA title={content.ctaTitle} body={content.ctaBody} />
       </main>
-      <Footer />
+      <ServiceFooter />
     </div>
   );
 };
 
-const Footer: React.FC = () => (
+export const ServiceFooter: React.FC = () => (
   <footer className="border-t border-white/10 bg-[#0A0A0A] py-8 text-white">
     <div className="shell flex flex-col items-center justify-between gap-4 sm:flex-row">
       <p className="label-mono text-white/45">© {new Date().getFullYear()} Pixel Labs</p>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap justify-center gap-6">
         <Link to="/" className="text-[14px] text-white/65 transition-colors hover:text-white">
           Home
+        </Link>
+        <Link to="/website-design" className="text-[14px] text-white/65 transition-colors hover:text-white">
+          New websites
         </Link>
         <Link to="/website-redesign" className="text-[14px] text-white/65 transition-colors hover:text-white">
           Redesigns
         </Link>
-        <Link to="/website-design" className="text-[14px] text-white/65 transition-colors hover:text-white">
-          New websites
+        <Link to="/seo-services" className="text-[14px] text-white/65 transition-colors hover:text-white">
+          SEO
+        </Link>
+        <Link to="/work" className="text-[14px] text-white/65 transition-colors hover:text-white">
+          Our work
         </Link>
       </div>
     </div>

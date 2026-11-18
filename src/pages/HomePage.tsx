@@ -56,6 +56,12 @@ const ServicesStrip: React.FC = () => (
             </span>
           </a>
         </div>
+        <a
+          href="/work"
+          className="label-mono mt-6 inline-flex items-center gap-2 text-foreground/70 transition-colors hover:text-[hsl(18_100%_50%)]"
+        >
+          See our work <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+        </a>
       </Reveal>
     </div>
   </section>

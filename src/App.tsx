@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PrivacyPage, TermsPage } from './pages/PolicyPage';
 import { WebsiteDesignPage, WebsiteRedesignPage, SeoServicesPage } from './pages/ServicePages';
+import { WorkPage } from './pages/WorkPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 const ScrollHandler: React.FC = () => {
@@ -31,6 +32,7 @@ export const AppRoutes: React.FC = () => {
         <Route path="/website-design" element={<WebsiteDesignPage />} />
         <Route path="/website-redesign" element={<WebsiteRedesignPage />} />
         <Route path="/seo-services" element={<SeoServicesPage />} />
+        <Route path="/work" element={<WorkPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="*" element={<NotFoundPage />} />

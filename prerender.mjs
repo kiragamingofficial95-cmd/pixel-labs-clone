@@ -171,6 +171,38 @@ const ROUTES = [
     },
   },
   {
+    path: '/work',
+    file: 'work/index.html',
+    title: 'Our Work: Influencer Marketing Agency Websites | Pixel Labs',
+    description:
+      'See the websites Pixel Labs has built for influencer marketing businesses — designed, written, and built end to end. Including Agora Reliance, a full-service creator campaign agency for B2B.',
+    ogTitle: 'Our Work: Influencer Marketing Agency Websites | Pixel Labs',
+    ogDescription:
+      'Real launches, built end to end for influencer marketing businesses. No templates, no filler case studies.',
+    ld: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Our work' },
+          ],
+        },
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/work#webpage`,
+          url: `${SITE_URL}/work`,
+          name: 'Our Work: Influencer Marketing Agency Websites | Pixel Labs',
+          description:
+            'Websites designed, written, and built end to end for influencer marketing businesses.',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          inLanguage: 'en',
+        },
+      ],
+    },
+  },
+  {
     path: '/privacy',
     file: 'privacy/index.html',
     title: 'Privacy Policy | Pixel Labs',

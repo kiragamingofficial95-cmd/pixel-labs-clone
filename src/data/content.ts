@@ -164,6 +164,35 @@ export const CASE_STUDY: CaseStudy = {
   ],
 };
 
+export interface WorkCase {
+  client: string;
+  industry: string;
+  url: string;
+  scope: string[];
+  challenge: string;
+  approach: string[];
+  outcome: string;
+}
+
+export const WORK_CASES: WorkCase[] = [
+  {
+    client: 'Agora Reliance',
+    industry: 'Creator campaign agency for B2B brands',
+    url: 'https://agorareliance.com',
+    scope: ['New website', 'Copywriting', 'SEO structure'],
+    challenge:
+      'A B2B creator campaign agency needed a site that could explain a service most brands have never bought in this form — and turn a first visit into a campaign inquiry without a sales call to explain everything.',
+    approach: [
+      'We planned the site around the questions a brand asks before it trusts an agency with a campaign: what you do, how you work, who you have done it for.',
+      'One main action on every page — start a campaign — with a separate, obvious route for creators to apply.',
+      'Titles, headings, and content structure were planned for search while the design was built, so the site launched ready to rank.',
+      'The copy was written to answer the brand’s questions first, not to retell the agency’s story.',
+    ],
+    outcome:
+      'Designed, written, built, and launched — one specialist site carrying both brand and creator paths from day one. See it live at agorareliance.com.',
+  },
+];
+
 export interface ServiceFaq {
   q: string;
   a: string;
