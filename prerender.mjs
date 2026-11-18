@@ -139,6 +139,38 @@ const ROUTES = [
     },
   },
   {
+    path: '/seo-services',
+    file: 'seo-services/index.html',
+    title: 'SEO for Influencer Marketing Agencies | Pixel Labs',
+    description:
+      'Pixel Labs plans and runs SEO for influencer marketing agencies: the pages brands search for, structure that ranks, and visibility in AI answers like ChatGPT and Google AI Overviews. Book a free call.',
+    ogTitle: 'SEO for Influencer Marketing Agencies | Pixel Labs',
+    ogDescription:
+      'The searches that bring agency clients, pages that rank, and quotable answers for AI assistants. Planned like a project, tracked from day one.',
+    ld: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'SEO services' },
+          ],
+        },
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/seo-services#webpage`,
+          url: `${SITE_URL}/seo-services`,
+          name: 'SEO for Influencer Marketing Agencies | Pixel Labs',
+          description:
+            'SEO for influencer marketing agencies: buyer searches, ranking structure, and AI-answer readiness, tracked from day one.',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          inLanguage: 'en',
+        },
+      ],
+    },
+  },
+  {
     path: '/privacy',
     file: 'privacy/index.html',
     title: 'Privacy Policy | Pixel Labs',

@@ -4,6 +4,7 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/website-design", "destination": "/website-design/index.html" },
     { "source": "/website-redesign", "destination": "/website-redesign/index.html" },
+    { "source": "/seo-services", "destination": "/seo-services/index.html" },
     { "source": "/privacy", "destination": "/privacy/index.html" },
     { "source": "/terms", "destination": "/terms/index.html" }
   ]

@@ -256,6 +256,79 @@ export const WEBSITE_DESIGN_PAGE: ServicePageContent = {
     'Book a free discovery call. We show you a site made for your business and talk it through. No obligation.',
 };
 
+export const SEO_SERVICES_PAGE: ServicePageContent = {
+  slug: '/seo-services',
+  browserTitle: 'SEO for Influencer Marketing Agencies | Pixel Labs',
+  metaDescription:
+    'Pixel Labs plans and runs SEO for influencer marketing agencies: the pages brands search for, structure that ranks, and visibility in AI answers like ChatGPT and Google AI Overviews. Book a free call.',
+  eyebrow: '[Services] // SEO',
+  heading: 'SEO for influencer marketing agencies',
+  intro:
+    'Brands increasingly find agencies by searching — in Google and in AI answers. SEO work for your agency means building the pages brands search for, structuring them so search engines can rank them, and making your site quotable when someone asks ChatGPT for an influencer marketing agency.',
+  includedTitle: 'What the SEO work covers',
+  includedIntro:
+    'Planned like a project, not a retainer of vague reports. The work covers:',
+  included: [
+    'Finding the searches that actually bring agency clients — campaign inquiries, not generic "influencer marketing" traffic that never buys.',
+    'Building the pages those searches deserve: services, use cases, and the pages brands read right before they shortlist an agency.',
+    'Titles, headings, and internal links planned so Google can rank the right page for the right search.',
+    'Technical foundations: crawlable, fast, mobile-first, correctly indexed — the base everything else sits on.',
+    'AI-answer readiness: pages that state specific facts plainly, so ChatGPT, Perplexity, and Google AI Overviews can quote your agency when buyers ask.',
+    'Tracking from day one in Search Console, so you can see impressions, clicks, and inquiries rise — or know quickly if something is not working.',
+  ],
+  whyTitle: 'Why agencies invest in SEO',
+  whyIntro:
+    'Most influencer marketing agencies run on referrals and outbound. Both work — until you want a source of clients that compounds.',
+  why: [
+    {
+      title: 'Brands search before they reach out',
+      body:
+        'A brand decision-maker googles "influencer marketing agency for [industry]" and asks AI assistants for shortlists before contacting anyone. Agencies without pages for those searches are invisible in the moment a buyer is paying attention.',
+    },
+    {
+      title: 'Referrals do not compound',
+      body:
+        'A referral makes one call. A page that ranks makes calls every month without anyone pressing send. SEO is the only channel where the work keeps paying after you stop paying for it.',
+    },
+    {
+      title: 'AI answers quote agencies that state facts',
+      body:
+        'ChatGPT, Perplexity, and Google AI Overviews cite pages that answer buyer questions in plain, specific sentences. That is a structural choice about how your pages are written — one we build in.',
+    },
+    {
+      title: 'Your niche is winnable',
+      body:
+        "You are not competing with every agency on earth — you are competing for searches in influencer marketing, where specialist agencies with focused pages beat generalists with bigger budgets.",
+    },
+  ],
+  faqTitle: 'SEO questions',
+  faq: [
+    {
+      q: 'Does SEO work for influencer marketing agencies?',
+      a: 'Yes — agency services are searched. The searches are fewer and more specific than consumer terms, which is exactly why focused pages from a specialist agency can rank: the competition on agency-specific searches is thinner than on generic marketing terms.',
+    },
+    {
+      q: 'How long until we see results?',
+      a: 'Expect first impressions within weeks, meaningful clicks in 2–4 months for achievable searches, and compounding growth after that. We set a baseline in Search Console on day one so you can see the curve rather than take it on faith.',
+    },
+    {
+      q: 'What about ChatGPT and AI answers?',
+      a: 'They are part of the plan, not a separate project. AI answer engines mostly cite pages that search engines can already find, that state facts plainly, and that are mentioned on the review and list pages buyers read. We build for all three.',
+    },
+    {
+      q: 'Can you do SEO on our existing website?',
+      a: 'Usually, yes — it depends on the platform and how the site is built. We audit what you have, keep what works, and tell you honestly when a rebuild is the cheaper path.',
+    },
+    {
+      q: 'How much does SEO cost?',
+      a: 'It depends on scope: how many pages need building or fixing, and how much of the writing we do. You get a clear quote on the discovery call, and the call is free.',
+    },
+  ],
+  ctaTitle: 'Ready to be found by the brands searching now?',
+  ctaBody:
+    'Book a free discovery call. We look at your current visibility, show you the searches worth owning, and you decide from there. No obligation.',
+};
+
 export const WEBSITE_REDESIGN_PAGE: ServicePageContent = {
   slug: '/website-redesign',
   browserTitle: 'Website Redesign for Influencer Marketing Agencies | Pixel Labs',
@@ -344,6 +417,7 @@ export const FOOTER_SECTIONS = [
     links: [
       { label: 'New websites', href: '/website-design' },
       { label: 'Redesigns', href: '/website-redesign' },
+      { label: 'SEO', href: '/seo-services' },
     ],
   },
   {
