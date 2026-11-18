@@ -74,8 +74,8 @@ export const PrivacyPage: React.FC = () => {
   return (
     <PolicyLayout
       title="Privacy Policy"
-      updated="Last updated: placeholder — replace before publishing"
-      intro="This is placeholder policy copy for the Pixel Labs landing page. Replace it with your own reviewed privacy policy before you go live."
+      updated="Last updated: 18 November 2026"
+      intro="What Pixel Labs collects through this site, why, and what you can ask us to do with it."
       sections={PRIVACY_SECTIONS}
     />
   );
@@ -85,8 +85,8 @@ export const TermsPage: React.FC = () => {
   return (
     <PolicyLayout
       title="Terms of Service"
-      updated="Last updated: placeholder — replace before publishing"
-      intro="This is placeholder terms copy for the Pixel Labs landing page. Replace it with your own reviewed terms before you go live."
+      updated="Last updated: 18 November 2026"
+      intro="How engagements with Pixel Labs work: the free discovery call, quotes, delivery, and ownership."
       sections={TERMS_SECTIONS}
     />
   );

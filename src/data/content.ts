@@ -361,46 +361,74 @@ export const FOOTER_SECTIONS = [
 
 export const PRIVACY_SECTIONS = [
   {
+    heading: 'Last updated',
+    body: 'This policy was last updated on 18 November 2026. If we change it materially, we will note the change here.',
+  },
+  {
+    heading: 'Who we are',
+    body: 'Pixel Labs ("we", "us") designs, builds, and search-optimizes websites for influencer marketing businesses. This policy explains what we collect through pixellabs.bond and what we do with it. Questions? Email hello@pixellabs.studio.',
+  },
+  {
     heading: 'What we collect',
-    body: 'We collect the details you submit through our forms — typically your name, email address, and the information you choose to share about your business. We also collect basic usage data such as pages viewed and referral source.',
+    body: 'We collect what you send us: your name, your email address, your company name, and anything you choose to tell us about your business when you fill in a form, book a discovery call, or email us. We also receive standard technical data — pages viewed, referral source, browser type, and approximate location — from our hosting and analytics providers.',
   },
   {
-    heading: 'How we use it',
-    body: 'We use your information to provide the service, respond to enquiries, send product updates you asked for, and improve the product. We do not sell your personal data.',
+    heading: 'Why we collect it',
+    body: 'We use your details to reply to your inquiry, prepare for and hold the discovery call, quote and deliver projects, and send you information you asked for. We do not sell your personal data, and we do not use it to train AI models.',
   },
   {
-    heading: 'Cookies and analytics',
-    body: 'We use a small number of cookies to keep you signed in and to understand how the site is used. You can block cookies in your browser settings, though parts of the product may stop working.',
+    heading: 'Cookies',
+    body: 'The site uses a small number of cookies for analytics — to count visits and see which pages are useful. You can block or delete cookies in your browser settings; the site will still work, we just won\'t see the visit in our statistics.',
   },
   {
-    heading: 'Data retention and your rights',
-    body: 'We keep account data for as long as your account is active. You can request a copy of your data, ask for corrections, or ask us to delete it at any time by emailing us.',
+    heading: 'Sharing and processors',
+    body: 'We share your details only with the providers that make this site and our work possible: hosting (Vercel), email delivery, analytics, and scheduling for discovery calls. Each processes data on our instructions under its own privacy commitments. We never sell or rent your data.',
   },
   {
-    heading: 'Third parties',
-    body: 'We use trusted providers for hosting, payments, and email delivery. They process data only on our instructions and under their own privacy commitments.',
+    heading: 'Retention',
+    body: 'We keep inquiry details as long as needed to handle them and for a reasonable period afterwards in case you return. Project records are kept for the duration of the engagement and any agreed support period. You can ask us to delete your details at any time.',
+  },
+  {
+    heading: 'Your rights',
+    body: 'Wherever you are in the world, you can ask for a copy of the details we hold about you, ask us to correct or delete them, or object to our use of them. Email hello@pixellabs.studio and we will act on your request promptly.',
   },
 ];
 
 export const TERMS_SECTIONS = [
   {
-    heading: 'Using the service',
-    body: 'You may use Pixel Labs to build and publish pages for yourself or your clients. You are responsible for the content you publish and for keeping your account credentials secure.',
+    heading: 'Last updated',
+    body: 'These terms were last updated on 18 November 2026. They apply to this website and to the discovery calls booked through it.',
   },
   {
-    heading: 'Billing and cancellation',
-    body: 'Plans are billed monthly or annually in advance. You can cancel at any time from your account; access continues until the end of the current billing period.',
+    heading: 'What we do',
+    body: 'Pixel Labs designs, redesigns, and search-optimizes websites for influencer marketing businesses. Engagements start with a free discovery call and are confirmed by an agreed quote and scope before any work begins.',
   },
   {
-    heading: 'Acceptable use',
-    body: 'Do not use the service to publish unlawful, misleading, or harmful content, or to send unsolicited email. We may suspend accounts that break these rules.',
+    heading: 'The discovery call',
+    body: 'The discovery call is free and carries no obligation. On the call we show you a site concept for your business and discuss scope, timeline, and price. Nothing is owed by either side unless you choose to proceed.',
+  },
+  {
+    heading: 'Quotes, payment, and delivery',
+    body: 'Each project is quoted individually based on scope — pages, content, and SEO work. Payment terms, milestones, and the 12-day delivery window are agreed in writing with the quote before work starts. Anything outside the agreed scope is quoted separately.',
+  },
+  {
+    heading: 'Your responsibilities',
+    body: 'You confirm you have the right to use any brand assets, text, images, and claims you give us, and that the business you are promoting is lawfully operated. You review and approve the site before launch.',
   },
   {
     heading: 'Ownership',
-    body: 'You own the content you create and the pages you publish. We own the software, templates, and underlying structure of the product.',
+    body: 'On full payment, you own the finished website content and design deliverables created for your project. We keep the right to reuse our general techniques, templates, and know-how, and — unless you ask us not to — to reference the project in our portfolio.',
+  },
+  {
+    heading: 'Results',
+    body: 'We plan titles, headings, structure, and content for search, but we do not guarantee rankings, traffic volumes, or inquiry counts. No one honestly can, and anyone who promises them is worth avoiding.',
   },
   {
     heading: 'Limitation of liability',
-    body: 'The service is provided as is. To the extent permitted by law, our liability is limited to the amount you paid us in the previous twelve months.',
+    body: 'The site and our services are provided as is. To the extent permitted by law, our liability for any claim connected to a project is limited to the amount you paid us for that project.',
+  },
+  {
+    heading: 'Contact',
+    body: 'Questions about these terms: hello@pixellabs.studio.',
   },
 ];
