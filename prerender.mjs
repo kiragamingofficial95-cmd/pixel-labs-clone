@@ -19,6 +19,16 @@ const ROUTES = [
     title: 'Website Design for Influencer Marketing Businesses | Pixel Labs',
   },
   {
+    path: '/website-design',
+    file: 'website-design/index.html',
+    title: 'Website Design for Influencer Marketing Agencies | Pixel Labs',
+  },
+  {
+    path: '/website-redesign',
+    file: 'website-redesign/index.html',
+    title: 'Website Redesign for Influencer Marketing Agencies | Pixel Labs',
+  },
+  {
     path: '/privacy',
     file: 'privacy/index.html',
     title: 'Privacy Policy | Pixel Labs',
