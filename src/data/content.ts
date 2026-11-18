@@ -46,7 +46,7 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: 'Target',
     title: 'A specialist, not a generalist.',
-    body: 'We design websites for influencer marketing businesses. Your site’s structure comes from prior work in this niche, not a generic template.',
+    body: 'We design websites for influencer marketing agencies, talent management businesses, and creator companies. Your site’s structure comes from prior work in this niche, not a generic template.',
   },
   {
     icon: 'TrendingUp',
@@ -113,7 +113,7 @@ export const SERVICE_OPTIONS: string[] = [
 export const FAQ_ITEMS = [
   {
     q: 'Is this right for me?',
-    a: 'If you run an influencer marketing business and want more campaign inquiries from brands, yes. We also build a clear path for creators to apply. If you’re unsure, the free call will tell you.',
+    a: 'If you run an influencer marketing agency, a talent management business, or any creator-side company and want more campaign inquiries from brands, yes. We also build a clear path for creators to apply. If you’re unsure, the free call will tell you.',
   },
   {
     q: 'How long does it take to launch?',
@@ -143,7 +143,7 @@ export const TICKER_PHRASES: string[] = [
   'Pixel Labs',
 ];
 
-export const CONTACT_EMAIL = 'hello@pixellabs.studio';
+export const CONTACT_EMAIL = 'info@pixellabs.bond';
 
 export interface CaseStudy {
   name: string;
@@ -194,7 +194,7 @@ export const WEBSITE_DESIGN_PAGE: ServicePageContent = {
   metaDescription:
     'Pixel Labs designs and builds websites for influencer marketing agencies and creator businesses, structured to turn brand visitors into campaign inquiries. Live within 12 days. Book a free call.',
   eyebrow: '[Services] // New websites',
-  heading: 'Website design for influencer marketing businesses',
+  heading: 'Website design for influencer marketing agencies',
   intro:
     'A website that shows brands how to start a campaign with you, gives creators their own clear path, and is structured for search from the first sketch. Designed and built for influencer marketing agencies, talent managers, and creator businesses — live within 12 days of onboarding.',
   includedTitle: 'What every build includes',
@@ -262,7 +262,7 @@ export const WEBSITE_REDESIGN_PAGE: ServicePageContent = {
   metaDescription:
     'Pixel Labs redesigns influencer marketing agency websites that look fine but do not bring in campaign inquiries. Clear brand and creator paths, search-ready structure. Live within 12 days.',
   eyebrow: '[Services] // Redesigns',
-  heading: 'Website redesign for influencer marketing businesses',
+  heading: 'Website redesign for influencer marketing agencies',
   intro:
     'Your site looks fine, but brands do not seem to do anything on it. A redesign fixes the reasons: unclear next steps, one contact form for brands and creators, and a structure search engines cannot read. Rebuilt and live within 12 days — same brand, same domain.',
   includedTitle: 'What the redesign covers',
@@ -366,7 +366,7 @@ export const PRIVACY_SECTIONS = [
   },
   {
     heading: 'Who we are',
-    body: 'Pixel Labs ("we", "us") designs, builds, and search-optimizes websites for influencer marketing businesses. This policy explains what we collect through pixellabs.bond and what we do with it. Questions? Email hello@pixellabs.studio.',
+    body: 'Pixel Labs ("we", "us") designs, builds, and search-optimizes websites for influencer marketing businesses. This policy explains what we collect through pixellabs.bond and what we do with it. Questions? Email info@pixellabs.bond.',
   },
   {
     heading: 'What we collect',
@@ -390,7 +390,7 @@ export const PRIVACY_SECTIONS = [
   },
   {
     heading: 'Your rights',
-    body: 'Wherever you are in the world, you can ask for a copy of the details we hold about you, ask us to correct or delete them, or object to our use of them. Email hello@pixellabs.studio and we will act on your request promptly.',
+    body: 'Wherever you are in the world, you can ask for a copy of the details we hold about you, ask us to correct or delete them, or object to our use of them. Email info@pixellabs.bond and we will act on your request promptly.',
   },
 ];
 
@@ -429,6 +429,6 @@ export const TERMS_SECTIONS = [
   },
   {
     heading: 'Contact',
-    body: 'Questions about these terms: hello@pixellabs.studio.',
+    body: 'Questions about these terms: info@pixellabs.bond.',
   },
 ];
