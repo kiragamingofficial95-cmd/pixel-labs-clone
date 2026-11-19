@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { PrivacyPage, TermsPage } from './pages/PolicyPage';
 import { WebsiteDesignPage, WebsiteRedesignPage, SeoServicesPage } from './pages/ServicePages';
 import { WorkPage } from './pages/WorkPage';
+import { PricingPage } from './pages/PricingPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 const ScrollHandler: React.FC = () => {
@@ -33,6 +34,7 @@ export const AppRoutes: React.FC = () => {
         <Route path="/website-redesign" element={<WebsiteRedesignPage />} />
         <Route path="/seo-services" element={<SeoServicesPage />} />
         <Route path="/work" element={<WorkPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="*" element={<NotFoundPage />} />

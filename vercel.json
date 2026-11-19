@@ -6,6 +6,7 @@
     { "source": "/website-redesign", "destination": "/website-redesign/index.html" },
     { "source": "/seo-services", "destination": "/seo-services/index.html" },
     { "source": "/work", "destination": "/work/index.html" },
+    { "source": "/pricing", "destination": "/pricing/index.html" },
     { "source": "/privacy", "destination": "/privacy/index.html" },
     { "source": "/terms", "destination": "/terms/index.html" }
   ]

@@ -6,9 +6,14 @@ is that asset. Until then, only items 1–3 below make sense.
 
 ## Do now (week 4–6, ~1 hr each)
 
-1. **Agora Reliance link** — the first real link, earned. Ask Agora Reliance to add
-   "Website by Pixel Labs" (linked) in their footer credit. Client-site credits are
-   standard practice. Owner: you. Done when the link is live.
+1. ~~**Agora Reliance link** — footer credit "Website by Pixel Labs"~~ — **not possible**
+   (19 Nov 2026): the client does not add designer credits. Closed permanently; do not
+   ask again. Substitutes, in order of value:
+   - **Agora Reliance testimonial** — a short quote (2 sentences) from the client about
+     the process, published on `/work`. No link, but it is first-hand proof and helps
+     E-E-A-T. Ask once, accept a no.
+   - **Their social mention** — where the client already posts about their new site,
+     ask to tag Pixel Labs. A no-follow mention is still a brand entity signal.
 2. **LinkedIn company page** — create "Pixel Labs" company page, complete every field
    (tagline, services, website, logo). Gives AI engines a consistent brand entity and
    becomes the `sameAs` profile for schema. Owner: you. Done when the page is live.
@@ -27,7 +32,12 @@ is that asset. Until then, only items 1–3 below make sense.
    person, which is the point).
 6. **Podcast/newsletter pitches** — 5 pitches to influencer-marketing newsletters
    and podcasts: "what makes an agency website convert brands into campaigns".
-   Pitch the `/work` page as proof.
+   Pitch the `/work` page and `/pricing` page as proof.
+7. **Original data asset** — the realistic replacement for a client credit: one
+   small, original piece of research no one else has ("we reviewed 30 influencer
+   marketing agency websites: what they get wrong"), published as a page with the
+   method shown. That is the kind of thing directories, newsletters and AI answers
+   cite, and it earns links instead of asking for them.
 
 ## Do when content exists (month 3+)
 
@@ -54,3 +64,9 @@ is that asset. Until then, only items 1–3 below make sense.
 - External links: Search Console → Links → External links (baseline: 1, 18 Nov 2026).
 - Referring domains in any free backlink checker monthly.
 - Goal by week 13: 5–10 referring domains, all legitimate.
+
+## Change log
+
+- 18 Nov 2026 — plan created; 1 external link (scamadviser.com).
+- 19 Nov 2026 — Agora Reliance footer credit confirmed impossible; replaced with a
+  testimonial ask, a social tag ask, and an original data asset.

@@ -431,6 +431,208 @@ export const WEBSITE_REDESIGN_PAGE: ServicePageContent = {
     'Book a free discovery call. We look at your current site, show you what a redesign would change, and you decide from there. No obligation.',
 };
 
+export interface PricingPageContent {
+  browserTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  noPricesTitle: string;
+  noPricesIntro: string;
+  noPrices: { title: string; body: string }[];
+  driversTitle: string;
+  driversIntro: string;
+  drivers: { title: string; body: string }[];
+  includedTitle: string;
+  includedIntro: string;
+  included: string[];
+  shapesTitle: string;
+  shapesIntro: string;
+  shapes: { name: string; who: string; scope: string[]; note: string }[];
+  stepsTitle: string;
+  stepsIntro: string;
+  steps: { title: string; body: string }[];
+  faqTitle: string;
+  faq: ServiceFaq[];
+  ctaTitle: string;
+  ctaBody: string;
+}
+
+export const PRICING_PAGE: PricingPageContent = {
+  browserTitle: 'Website Pricing for Influencer Marketing Agencies | Pixel Labs',
+  metaDescription:
+    "What a website for an influencer marketing agency costs: what drives the quote, what is always included, and how to get a real number in writing. Free discovery call, no obligation.",
+  eyebrow: '[//] Pricing',
+  heading: 'What a website for your agency costs',
+  intro:
+    'Pixel Labs quotes each website per project rather than publishing a price list. Two influencer marketing agencies asking for "a website" can need very different things — five pages or fifteen, copywritten from scratch or reused, a new build or a repair of what exists. On a free call you get a real number, in writing, attached to a scope you can read.',
+  noPricesTitle: 'Why there is no price list',
+  noPricesIntro:
+    'Publishing a single number would be a guess dressed up as a fact. Here is what a price list hides:',
+  noPrices: [
+    {
+      title: 'Scope moves the work, not the price',
+      body:
+        'A five-page site written from your existing copy is a different job from a fifteen-page site with new copy for every page. One number cannot cover both honestly, and a range wide enough to cover both tells you nothing.',
+    },
+    {
+      title: 'A guess becomes the wrong number',
+      body:
+        'Quote too low and the project gets cut to fit. Quote too high and you never call. Both are guesses. A 20-minute conversation about your agency, your clients, and your current site replaces the guess with an actual scope.',
+    },
+    {
+      title: 'You should compare scope, not just price',
+      body:
+        'Cheap quotes are usually cheap because something is missing: the copy, the SEO structure, the mobile build, the launch. The quote we send lists every deliverable so you can compare it line by line with anyone else’s.',
+    },
+    {
+      title: 'The call is free, and so is the quote',
+      body:
+        'The discovery call costs you nothing, and the written quote that follows costs you nothing. If the number is wrong for you, you have lost half an hour and gained a clear picture of what your site needs.',
+    },
+  ],
+  driversTitle: 'What moves the quote',
+  driversIntro: 'Six things decide the number. Everything else is detail.',
+  drivers: [
+    {
+      title: 'Number of pages',
+      body:
+        'Every page is planned, designed, written, and built. More pages, more work — and the pages that carry the sales argument (services, work, about, contact) take the most.',
+    },
+    {
+      title: 'Copywriting',
+      body:
+        'If you have copy we can use, the quote is smaller. If the copy needs writing from scratch — the usual case — it is a real part of the project, not a free extra.',
+    },
+    {
+      title: 'New build or rebuild',
+      body:
+        'A redesign has to audit and keep what works, migrate content, and protect existing rankings. That is different work from starting clean, and it is quoted differently.',
+    },
+    {
+      title: 'SEO scope',
+      body:
+        'Structure inside the build (titles, headings, internal links, schema, sitemap) is included as standard. Ongoing SEO — new pages, content, tracking, AI-answer work — is quoted as its own engagement.',
+    },
+    {
+      title: 'Integrations',
+      body:
+        'Forms, CRM or email connections, booking, analytics, and any custom behaviour each add build time. We ask about them on the call so nothing appears on the invoice later.',
+    },
+    {
+      title: 'Timeline',
+      body:
+        'Standard delivery is 12 days from onboarding. A compressed timeline is possible when the schedule allows it, and it is priced as the exception it is.',
+    },
+  ],
+  includedTitle: 'Always included, whatever the quote',
+  includedIntro:
+    'Some things are not options. They are in every project, because a website without them does not do its job:',
+  included: [
+    'Discovery and planning before any design starts — who you sell to, what a brand needs to read before it trusts you, and the one action each page should drive.',
+    'Design and build, mobile-first, on a stack that loads fast and is not a template sold to a hundred other agencies.',
+    'SEO structure inside the build: page titles, headings, internal links, canonical tags, schema, robots.txt, and a sitemap.',
+    'Launch handled end to end: deployment, domain, HTTPS, Search Console, and a baseline so growth is measurable from day one.',
+    'A written scope before work starts, so what you are paying for is never a surprise or a memory.',
+    'Twelve-day delivery from onboarding for a standard new website.',
+  ],
+  shapesTitle: 'The three shapes of project',
+  shapesIntro:
+    'Most work lands in one of these. Each is quoted after the call — the scope below is what the quote covers.',
+  shapes: [
+    {
+      name: 'New website',
+      who: 'For an agency with no site, or one that cannot be fixed.',
+      scope: [
+        'Planning and page structure',
+        'Design and build',
+        'Copy for every page',
+        'SEO structure inside the build',
+        'Launch and tracking setup',
+      ],
+      note: 'Quoted per project · Live within 12 days',
+    },
+    {
+      name: 'Redesign',
+      who: 'For an agency with a site that gets visitors but not inquiries.',
+      scope: [
+        'Audit of the current site and its rankings',
+        'Restructure around one action per page',
+        'New design and build',
+        'Copy rewritten where it is the problem',
+        'Redirects and migration handled',
+      ],
+      note: 'Quoted per project · Existing rankings protected',
+    },
+    {
+      name: 'SEO',
+      who: 'For an agency whose site is fine but invisible.',
+      scope: [
+        'Search demand research for agency services',
+        'Page plan and content briefs',
+        'Build or rewrite of the pages that matter',
+        'Technical fixes and AI-answer readiness',
+        'Search Console tracking and monthly reporting',
+      ],
+      note: 'Quoted per engagement · Works on your current site',
+    },
+  ],
+  stepsTitle: 'How the quote works',
+  stepsIntro: 'Four steps, no pressure at any of them.',
+  steps: [
+    {
+      title: 'Free discovery call',
+      body:
+        'Twenty to thirty minutes. What your agency does, who its clients are, what your current site is doing or failing to do. You leave with an honest read on what you need.',
+    },
+    {
+      title: 'We look at what you have',
+      body:
+        'If you have a site, we check what works and what does not — structure, copy, speed, search visibility. That check is what makes the quote specific instead of generic.',
+    },
+    {
+      title: 'A written quote with scope',
+      body:
+        'One price for one clearly listed scope: pages, copy, design, build, SEO structure, launch. If something is out of scope, it says so.',
+    },
+    {
+      title: 'You decide',
+      body:
+        'No deposit until you have read the scope and agreed it. Payment terms are set in writing in the quote, before any work begins.',
+    },
+  ],
+  faqTitle: 'Pricing questions',
+  faq: [
+    {
+      q: 'Why don’t you show prices on the website?',
+      a: 'Because a published number would be a guess. The price of a website for an influencer marketing agency depends on the number of pages, whether copy is written from scratch, whether it is a new build or a rebuild, and how much SEO work is inside it. A quote after one call is more accurate than a number chosen to look competitive.',
+    },
+    {
+      q: 'How much does a website for an influencer marketing agency cost?',
+      a: 'It depends on scope, which is why we quote per project. What we can tell you now: the call and the quote are free, the scope is written down before you commit, and standard delivery is 12 days from onboarding. Agencies usually find the number is smaller than an in-house hire and larger than a template — because it is neither.',
+    },
+    {
+      q: 'Is the discovery call really free?',
+      a: 'Yes. There is no charge for the call and no obligation to continue. If we are not the right fit, we will say so on the call rather than send a quote we do not believe in.',
+    },
+    {
+      q: 'Can you work with our existing website?',
+      a: 'Often, yes. If the platform and structure allow it, SEO work and page rebuilds can happen on your current site without a full redesign. The call is where we find out which path is cheaper for you.',
+    },
+    {
+      q: 'Do you charge monthly?',
+      a: 'Websites are quoted as a one-off project. SEO is the exception: ongoing SEO is a monthly engagement because the work — new pages, content, tracking — continues. Both are quoted separately so you can choose one or both.',
+    },
+    {
+      q: 'What if we only need one page?',
+      a: 'We do not sell single pages. A page that has to win campaign inquiries needs the pages around it — services, proof, contact — to make sense. If all you need is a page, a redesign quote will usually be smaller than you expect.',
+    },
+  ],
+  ctaTitle: 'Get a real number, not a range',
+  ctaBody:
+    'Book a free discovery call. We look at your site, ask what a brand needs to see before it trusts you, and send a written quote with the scope attached. No obligation.',
+};
+
 export const FOOTER_SECTIONS = [
   {
     title: 'Explore',
@@ -447,6 +649,7 @@ export const FOOTER_SECTIONS = [
       { label: 'New websites', href: '/website-design' },
       { label: 'Redesigns', href: '/website-redesign' },
       { label: 'SEO', href: '/seo-services' },
+      { label: 'Pricing', href: '/pricing' },
     ],
   },
   {

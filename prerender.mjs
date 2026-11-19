@@ -203,6 +203,38 @@ const ROUTES = [
     },
   },
   {
+    path: '/pricing',
+    file: 'pricing/index.html',
+    title: 'Website Pricing for Influencer Marketing Agencies | Pixel Labs',
+    description:
+      'What a website for an influencer marketing agency costs: what drives the quote, what is always included, and how to get a real number in writing. Free discovery call, no obligation.',
+    ogTitle: 'Website Pricing for Influencer Marketing Agencies | Pixel Labs',
+    ogDescription:
+      'No price list, no guesswork: what moves the quote, what is always included, and a written number after one free call.',
+    ld: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Pricing' },
+          ],
+        },
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/pricing#webpage`,
+          url: `${SITE_URL}/pricing`,
+          name: 'Website Pricing for Influencer Marketing Agencies | Pixel Labs',
+          description:
+            'How websites for influencer marketing agencies are priced: the six factors that drive the quote, what is always included, and how the free call and written quote work.',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          inLanguage: 'en',
+        },
+      ],
+    },
+  },
+  {
     path: '/privacy',
     file: 'privacy/index.html',
     title: 'Privacy Policy | Pixel Labs',

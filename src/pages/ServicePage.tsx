@@ -193,6 +193,9 @@ export const ServiceFooter: React.FC = () => (
         <Link to="/work" className="text-[14px] text-white/65 transition-colors hover:text-white">
           Our work
         </Link>
+        <Link to="/pricing" className="text-[14px] text-white/65 transition-colors hover:text-white">
+          Pricing
+        </Link>
       </div>
     </div>
   </footer>
